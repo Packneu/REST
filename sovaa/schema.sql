@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS announcement;
 
 CREATE TABLE user (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -7,11 +8,11 @@ CREATE TABLE user (
   password TEXT NOT NULL
 );
 
-CREATE TABLE products (
+CREATE TABLE announcement (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT UNIQUE NOT NULL,
+  title TEXT UNIQUE NOT NULL,
+  body TEXT NOT NULL,
   price INTEGER NOT NULL,
-  title TEXT NOT NULL,
   image TEXT NOT NULL,
   status TEXT DEFAULT 'active'
 );
