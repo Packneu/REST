@@ -1,5 +1,4 @@
 DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS announcement;
 
 CREATE TABLE user (
@@ -10,9 +9,11 @@ CREATE TABLE user (
 
 CREATE TABLE announcement (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
+  author_id INTEGER NOT NULL,
   title TEXT UNIQUE NOT NULL,
   body TEXT NOT NULL,
   price INTEGER NOT NULL,
-  image TEXT NOT NULL,
-  status TEXT DEFAULT 'active'
+  status TEXT DEFAULT 'active',
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (author_id) REFERENCES user (id)
 );
