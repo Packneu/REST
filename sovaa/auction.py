@@ -17,7 +17,7 @@ def general():
         ' ORDER BY created DESC'
     ).fetchall()
 
-    return render_template('auction/general.html', announcements=announcements)
+    return render_template('auction/index.html', announcements=announcements)
 
 
 @bp.route('/created', methods=('GET', 'POST'))
