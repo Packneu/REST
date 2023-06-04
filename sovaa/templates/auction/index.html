@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auction</title>
+</head>
+<body>
+    <h1>Auction</h1>
+    {% if g.user %}
+        <p>Welcome, {{ g.user['username'] }}!</p>
+        <p><a href="{{ url_for('auth.logout') }}">Logout</a></p>
+        <hr>
+        <h2>Create Announcement</h2>
+        <form method="post" action="{{ url_for('auction.create') }}">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+            <br>
+            <label for="body">Body:</label>
+            <textarea id="body" name="body" required></textarea>
+            <br>
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" required>
+            <br>
+            <input type="submit" value="Create">
+        </form>
+        <hr>
+    {% else %}
+        <p><a href="{{ url_for('auth.register') }}">Register</a></p>
+        <p><a href="{{ url_for('auth.login') }}">Login</a></p>
+    {% endif %}
+    {% for announcement in announcements %}
+        <div>
+            <h3>{{ announcement['title'] }}</h3>
+            <p>Author: {{ announcement['username'] }}</p>
+            <p>Price: ${{ announcement['price'] }}</p>
+            <p>{{ announcement['body'] }}</p>
+            {% if g.user and g.user['id'] == announcement['author_id'] %}
+                <p>
+                    <a href="{{ url_for('auction.update', id=announcement['id']) }}">Edit</a>
+                    <form method="post" action="{{ url_for('auction.delete', id=announcement['id']) }}" style="display:inline-block;">
+                        <input type="submit" value="Delete">
+                    </form>
+                </p>
+            {% endif %}
+            <hr>
+        </div>
+    {% endfor %}
+</body>
+</html>

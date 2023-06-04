@@ -1,27 +1,180 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Registration</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray: #808080;
+      --red: #ff0000;
+      --orange: #ffa500;
+    }
+
+    .register {
+      background-color: var(--black);
+      padding: 0 230px 0 0;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .rectangle-7 {
+      width: 960px;
+      height: 1080px;
+      background: linear-gradient(
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3)
+        ),
+        url("https://static.overlay-tech.com/assets/4f76b7c6-16ae-46c9-bb66-92253c9a336e.png"),
+        rgba(217, 217, 217, 1);
+      background-size: 100% 100%;
+      background-position: center;
+      margin-right: 278px;
+    }
+
+    .flex-wrapper-one {
+      padding: 376px 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .create-an-account {
+      font-family: "Nunito Sans";
+      font-size: 44px;
+      font-weight: 900;
+      line-height: normal;
+      color: var(--white);
+      margin-bottom: 92px;
+    }
+
+    .all-fields {
+      margin-bottom: 50.33px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .fields {
+      margin-bottom: 21px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .frame-15 {
+      margin-bottom: 21px;
+      display: flex;
+      align-items: flex-start;
+      width: 452px;
+    }
+
+    .but {
+      flex: 1;
+    }
+
+    .but:not(:last-of-type) {
+      margin-right: 21px;
+    }
+
+    .but-two {
+      width: 397px;
+    }
+
+    .but-two:not(:last-of-type) {
+      margin-bottom: 21px;
+    }
+
+    .but-three {
+      height: 28.01px;
+      align-self: stretch;
+    }
+
+    .ask {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .do-you-have-an-account {
+      max-width: 210px;
+      font-family: "Hind";
+      font-size: 19px;
+      font-weight: 500;
+      line-height: normal;
+      color: var(--white);
+      margin-right: 14px;
+    }
+
+    .sign-in {
+      max-width: 57px;
+      font-family: "Hind";
+      font-size: 19px;
+      font-weight: 500;
+      line-height: normal;
+      color: var(--orange);
+    }
+
+    .but {
+      background-color: var(--white);
+      border-radius: 4px;
+      padding: 7.33px 26.5px 7.34px;
+      display: flex;
+      align-items: flex-start;
+      border: 1px solid var(--white);
+    }
+
+    .txt {
+      font-family: "Nunito Sans";
+      font-size: 21px;
+      font-weight: 900;
+      line-height: normal;
+      color: var(--gray);
+    }
+
+    /* Вставьте ваше изображение здесь */
+    .custom-image {
+      /* Стили для изображения */
+    }
+  </style>
 </head>
 <body>
-    <h1>Registration</h1>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul>
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-    <form method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <input type="submit" value="Register">
-    </form>
+  <div class="register">
+    <div class="rectangle-7"></div>
+    <div class="flex-wrapper-one">
+      <p class="create-an-account">Create an account</p>
+      <div class="all-fields">
+        <div class="fields">
+          <div class="frame-15">
+            <div class="but">
+              <div class="but"><input type="text" class="txt" placeholder="Name"></div>
+            </div>
+            <div class="but">
+              <div class="but"><input type="text" class="txt" placeholder="Surname"></div>
+            </div>
+          </div>
+          <div class="but-two">
+            <div class="but"><input type="email" class="txt" placeholder="Email"></div>
+          </div>
+          <div class="but-two">
+            <div class="but"><input type="password" class="txt" placeholder="Password"></div>
+          </div>
+        </div>
+        <div class="but-three">
+          <div class="but"><button class="txt">Sign Up</button></div>
+        </div>
+      </div>
+      <div class="ask">
+        <p class="do-you-have-an-account">
+          Do you have an account?
+        </p>
+        <p class="sign-in">Sign In</p>
+      </div>
+    </div>
+  </div>
+  <div class="custom-image">
+    <!-- Вставьте ваше изображение здесь -->
+  </div>
 </body>
 </html>
