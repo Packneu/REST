@@ -15,5 +15,6 @@ CREATE TABLE announcement (
   price INTEGER NOT NULL,
   status TEXT DEFAULT 'active',
   created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  images TEXT NOT NULL,
   FOREIGN KEY (author_id) REFERENCES user (id)
 );
