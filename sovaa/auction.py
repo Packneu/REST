@@ -1,12 +1,19 @@
+import os
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, url_for
 )
 from werkzeug.exceptions import abort
+from werkzeug.utils import secure_filename
 from sovaa.auth import login_required
 from sovaa.db import get_db
 
 bp = Blueprint('auction', __name__)
 
+UPLOAD_FOLDER = 'static/uploads'
+ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'gif'}
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @bp.route('/')
 def general():
@@ -20,14 +27,14 @@ def general():
     return render_template('auction/index.html', announcements=announcements)
 
 
-@bp.route('/create', methods=('GET', 'POST'))
+@bp.route('/created', methods=('GET', 'POST'))
 @login_required
 def create():
     if request.method == 'POST':
         title = request.form['title']
         body = request.form['body']
         price = request.form['price']
-        image = request.files['images']
+        image = request.files['image']
         error = None
 
         if not title:
@@ -48,7 +55,7 @@ def create():
 
             db = get_db()
             db.execute(
-                'INSERT INTO announcement (title, body, price, author_id, images)'
+                'INSERT INTO announcement(title, body, price, author_id, images)'
                 ' VALUES (?, ?, ?, ?, ?)',
                 (title, body, price, g.user['id'], image_path)
             )
