@@ -1,6 +1,6 @@
 import os
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, url_for
+    Blueprint, flash, g, redirect, render_template, request, url_for, current_app
 )
 from werkzeug.exceptions import abort
 from werkzeug.utils import secure_filename
@@ -9,11 +9,9 @@ from sovaa.db import get_db
 
 bp = Blueprint('auction', __name__)
 
-UPLOAD_FOLDER = 'static/uploads'
-ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'gif'}
 
 def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in current_app.config['ALLOWED_EXTENSIONS']
 
 @bp.route('/')
 def index():
@@ -31,10 +29,11 @@ def index():
 @login_required
 def create():
     if request.method == 'POST':
+        file = request.files['image']
         title = request.form['title']
         body = request.form['body']
         price = request.form['price']
-        image = request.files['image']
+        image = os.path.join(current_app.config['PUBLIC_FOLDER'], file.filename)
         error = None
 
         if not title:
@@ -43,24 +42,24 @@ def create():
         if not price:
             error = 'Price is required.'
 
-        if not image or not allowed_file(image.filename):
+        if not image or not allowed_file(file.filename):
             error = 'Invalid image file. Allowed file types are jpg, jpeg, png, and gif.'
 
         if error is not None:
             flash(error)
         else:
-            filename = secure_filename(image.filename)
-            image_path = os.path.join(UPLOAD_FOLDER, filename)
-            image_path = image_path.replace('\\', '/')
-            image.save(image_path)
+            filename = secure_filename(file.filename)
 
             db = get_db()
             db.execute(
                 'INSERT INTO announcement(title, body, price, author_id, images)'
                 ' VALUES (?, ?, ?, ?, ?)',
-                (title, body, price, g.user['id'], image_path)
+                (title, body, price, g.user['id'], image.replace('\\', '/'))
             )
             db.commit()
+
+            file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+
             return redirect(url_for('auction.index'))
 
     return render_template('auction/create.html')
