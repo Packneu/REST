@@ -64,21 +64,6 @@
       align-items: flex-start;
     }
 
-    .frame-15 {
-      margin-bottom: 21px;
-      display: flex;
-      align-items: flex-start;
-      width: 452px;
-    }
-
-    .but {
-      flex: 1;
-    }
-
-    .but:not(:last-of-type) {
-      margin-right: 21px;
-    }
-
     .but-two {
       width: 397px;
     }
@@ -133,34 +118,33 @@
       color: var(--gray);
     }
 
-    /* Вставьте ваше изображение здесь */
-    .custom-image {
-      /* Стили для изображения */
-    }
   </style>
 </head>
 <body>
   <div class="register">
     <div class="rectangle-7"></div>
     <div class="flex-wrapper-one">
-      <p class="create-an-account">Create an account</p>
+      <p class="create-an-account">Log In to your account</p>
       <div class="all-fields">
-        <div class="fields">
-          <div class="frame-15">
-            <div class="but">
-              <div class="but"><input type="text" class="txt" placeholder="Username"></div>
+        <form id="login-form" method="post">
+          <div class="fields">
+            <div class="but-two">
+              <div class="but">
+                <input type="text" id="username" name="username" class="txt" placeholder="Username">
+              </div>
+            </div>
+            <div class="but-two">
+              <div class="but">
+                <input type="password" name="password" id="password" class="txt" placeholder="Password">
+              </div>
             </div>
           </div>
-          <div class="but-two">
-            <div class="but"><input type="email" class="txt" placeholder="Email"></div>
+          <div class="but-three">
+            <div class="but">
+              <button class="txt">Log In</button>
+            </div>
           </div>
-          <div class="but-two">
-            <div class="but"><input type="password" class="txt" placeholder="Password"></div>
-          </div>
-        </div>
-        <div class="but-three">
-          <div class="but"><button class="txt">Sign Up</button></div>
-        </div>
+        </form>
       </div>
       <div class="ask">
         <p class="do-you-have-an-account">
@@ -170,8 +154,9 @@
       </div>
     </div>
   </div>
-  <div class="custom-image">
-    <!-- Вставьте ваше изображение здесь -->
-  </div>
+
+  <div id="error-message" class="error-message" style="display: none;"></div>
+
+  <script src="login.js"></script>
 </body>
 </html>
