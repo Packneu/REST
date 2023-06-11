@@ -19,7 +19,7 @@ def allowed_file(filename):
 def index():
     db = get_db()
     announcements = db.execute(
-        'SELECT a.id, title, body, created, author_id, username'
+        'SELECT a.id, title, body, price, created, author_id, username, images'
         ' FROM announcement a JOIN user u ON a.author_id = u.id'
         ' ORDER BY created DESC'
     ).fetchall()
@@ -51,6 +51,7 @@ def create():
         else:
             filename = secure_filename(image.filename)
             image_path = os.path.join(UPLOAD_FOLDER, filename)
+            image_path = image_path.replace('\\', '/')
             image.save(image_path)
 
             db = get_db()
@@ -67,7 +68,7 @@ def create():
 
 def get_announcement(id, check_author=True):
     announcement = get_db().execute(
-        'SELECT a.id, title, body, price, created, author_id, username'
+        'SELECT a.id, title, body, price, created, author_id, username, images'
         ' FROM announcement a JOIN user u ON a.author_id = u.id'
         ' WHERE a.id = ?',
         (id,)

@@ -26,8 +26,8 @@
                 <p>Author: {{ announcement['username'] }}</p>
                 <p>Price: ${{ announcement['price'] }}</p>
                 <p>{{ announcement['body'] }}</p>
-                {% if announcement['image_path'] %}
-                    <img src="{{ announcement['image_path'] }}" alt="Announcement Image">
+                {% if announcement['images'] %}
+                    <img src="{{ url_for('static', filename=image_path) }}" alt="Announcement Image">
                 {% endif %}
                 {% if g.user and g.user['id'] == announcement['author_id'] %}
                      <p>
