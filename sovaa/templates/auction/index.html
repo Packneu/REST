@@ -26,9 +26,7 @@
                 <p>Author: {{ announcement['username'] }}</p>
                 <p>Price: ${{ announcement['price'] }}</p>
                 <p>{{ announcement['body'] }}</p>
-                {% for image in announcement.images %}
-                    <img src="{{ url_for('static', filename=image) }}" alt="Announcement Image">
-                {% endfor %}
+                    <img src="{{ url_for('static', filename=announcement['images']) }}" alt="Announcement Image">
                 {% if g.user and g.user['id'] == announcement['author_id'] %}
                      <p>
                         <a href="{{ url_for('auction.update', id=announcement['id']) }}">Edit</a>

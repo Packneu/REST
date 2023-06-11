@@ -9,8 +9,8 @@ from sovaa.db import get_db
 
 bp = Blueprint('auction', __name__)
 
-UPLOAD_FOLDER = '/sovaa/templates/static/public/image'
-PUBLIC_FOLDER = '/public/image'
+UPLOAD_FOLDER = 'sovaa/static/images'
+PUBLIC_FOLDER = 'images/'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 def allowed_file(filename):
@@ -24,11 +24,6 @@ def index():
         ' FROM announcement a JOIN user u ON a.author_id = u.id'
         ' ORDER BY created DESC'
     ).fetchall()
-
-    for announcement in announcements:
-        print("Announcement ID:", announcement['id'])
-        print("Announcement Title:", announcement['title'])
-        print("Announcement Image Path:", announcement['images'])
 
     return render_template('auction/index.html', announcements=announcements)
 
@@ -56,8 +51,7 @@ def create():
             flash(error)
         else:
             filename = secure_filename(image.filename)
-            image_path = os.path.join(PUBLIC_FOLDER, image.filename)
-            image_path = image_path.replace('\\', '/')
+            image_path = os.path.join(PUBLIC_FOLDER, filename)
             image.save(os.path.join(UPLOAD_FOLDER, filename))
 
             db = get_db()
