@@ -145,30 +145,28 @@
     <div class="flex-wrapper-one">
       <p class="create-an-account">Create an account</p>
       <div class="all-fields">
-        <div class="fields">
-          <div class="frame-15">
-            <div class="but">
-              <div class="but"><input type="text" class="txt" placeholder="Name"></div>
+        <form id="register-form" method="post">
+          <div class="fields">
+            <div class="frame-15">
+              <div class="but">
+                <input type="text" class="txt" id="username" name="username" placeholder="Username">
+              </div>
             </div>
-            <div class="but">
-              <div class="but"><input type="text" class="txt" placeholder="Surname"></div>
+            <div class="frame-15">
+              <div class="but">
+                <input type="password" class="txt" id="password" name="password" placeholder="Password">
+              </div>
             </div>
           </div>
-          <div class="but-two">
-            <div class="but"><input type="email" class="txt" placeholder="Email"></div>
+          <div class="but-three">
+            <div class="but">
+              <button type="submit" class="txt">Sign Up</button>
+            </div>
           </div>
-          <div class="but-two">
-            <div class="but"><input type="password" class="txt" placeholder="Password"></div>
-          </div>
-        </div>
-        <div class="but-three">
-          <div class="but"><button class="txt">Sign Up</button></div>
-        </div>
+        </form>
       </div>
       <div class="ask">
-        <p class="do-you-have-an-account">
-          Do you have an account?
-        </p>
+        <p class="do-you-have-an-account">Do you have an account?</p>
         <p class="sign-in">Sign In</p>
       </div>
     </div>
@@ -176,5 +174,6 @@
   <div class="custom-image">
     <!-- Вставьте ваше изображение здесь -->
   </div>
+<script src="register.js"></script>
 </body>
 </html>

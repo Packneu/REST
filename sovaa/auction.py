@@ -16,7 +16,7 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @bp.route('/')
-def general():
+def index():
     db = get_db()
     announcements = db.execute(
         'SELECT a.id, title, body, created, author_id, username'
@@ -60,7 +60,7 @@ def create():
                 (title, body, price, g.user['id'], image_path)
             )
             db.commit()
-            return redirect(url_for('auction.general'))
+            return redirect(url_for('auction.index'))
 
     return render_template('auction/create.html')
 
@@ -109,7 +109,7 @@ def update(id):
                 (title, body, price, id)
             )
             db.commit()
-            return redirect(url_for('auction.general'))
+            return redirect(url_for('auction.index'))
 
     return render_template('auction/update.html')
 
@@ -121,5 +121,5 @@ def delete(id):
     db = get_db()
     db.execute('DELETE FROM announcement WHERE id = ?', (id,))
     db.commit()
-    return redirect(url_for('auction.general'))
+    return redirect(url_for('auction.index'))
 
