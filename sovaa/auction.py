@@ -92,7 +92,11 @@ def update(id):
         title = request.form['title']
         body = request.form['body']
         price = request.form['price']
+        image = request.files['image']
         error = None
+
+        if not image or not allowed_file(image.filename):
+            error = 'Invalid image file. Allowed file types are jpg, jpeg, png, and gif.'
 
         if not title:
             error = 'Title is required.'
@@ -103,16 +107,19 @@ def update(id):
         if error is not None:
             flash(error)
         else:
+            filename = secure_filename(image.filename)
+            image_path = os.path.join(PUBLIC_FOLDER, filename)
+            image.save(os.path.join(UPLOAD_FOLDER, filename))
             db = get_db()
             db.execute(
-                'UPDATE announcement SET title = ?, body = ?, price = ?'
+                'UPDATE announcement SET title = ?, body = ?, price = ?, images = ?'
                 ' WHERE id = ?',
-                (title, body, price, id)
+                (title, body, price, image_path, id)
             )
             db.commit()
             return redirect(url_for('auction.index'))
 
-    return render_template('auction/update.html')
+    return render_template('auction/update.html', announcement=announcement)
 
 
 @bp.route('/<int:id>/delete', methods=('POST',))
@@ -123,4 +130,10 @@ def delete(id):
     db.execute('DELETE FROM announcement WHERE id = ?', (id,))
     db.commit()
     return redirect(url_for('auction.index'))
+
+@bp.route('/payment', methods=['GET'])
+def payment():
+    username = request.args.get('username')
+    price = request.args.get('price')
+    return render_template('auction/paypal.html', username=username, price=price)
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+    <script src="https://www.paypal.com/sdk/js?client-id=AZrtKHauKdGTjaOXM3jyIVdf9c9Z6pl1Fchr743J0Mgb1m9az1jJ0iG7YBAOY6_6iQUkMcPBc1eR-uNe"></script>
+    <script>
+        function initPayPalButton() {
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [
+                            {
+                                amount: {
+                                    currency_code: 'USD',
+                                    value: '{{ price }}'
+                                }
+                            }
+                        ]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        // Отправка данных на сервер
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('POST', '/api/paypal');
+                        xhr.setRequestHeader('Content-Type', 'application/json');
+                        xhr.onload = function() {
+                            if (xhr.status === 200) {
+                                alert('Payment completed successfully!');
+                                // Перенаправление на другую страницу или выполнение других действий
+                            } else {
+                                alert('Error occurred during payment. Please try again.');
+                            }
+                        };
+                        var data = JSON.stringify({
+                            username: '{{ username }}',
+                            price: '{{ price }}'
+                        });
+                        xhr.send(data);
+                    });
+                },
+                onError: function(err) {
+                    // Обработка ошибок при проведении платежа
+                    console.error(err);
+                    alert('Error occurred during payment. Please try again.');
+                }
+            }).render('#paypal-button-container');
+        }
+        initPayPalButton();
+    </script>
+</head>
+<body>
+    <h1>Payment</h1>
+    <p>Username: {{ username }}</p>
+    <p>Price: {{ price }}</p>
+    <div id="paypal-button-container"></div>
+</body>
+</html>

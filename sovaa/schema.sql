@@ -23,7 +23,7 @@ CREATE TABLE announcement (
 CREATE TABLE paypal (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     paypalid TEXT NOT NULL,
-    client TEXT NOT NULL,
-    price INTEGER NOT NULL,
+    buyer TEXT NOT NULL,
+    price INTEGER,
     status TEXT NOT NULL
 );

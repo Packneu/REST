@@ -24,8 +24,8 @@
             <div>
                 <h3>{{ announcement['title'] }}</h3>
                 <p>Author: {{ announcement['username'] }}</p>
-                <p>Price: ${{ announcement['price'] }}</p>
                 <p>{{ announcement['body'] }}</p>
+                <p>Price: {{ announcement['price'] }}$</p>
                     <img src="{{ url_for('static', filename=announcement['images']) }}" alt="Announcement Image">
                 {% if g.user and g.user['id'] == announcement['author_id'] %}
                      <p>
@@ -35,6 +35,9 @@
                         </form>
                     </p>
                 {% endif %}
+                <p>
+                    <a href="{{ url_for('auction.payment', username=g.user['username'], price=announcement['price']) }}">Buy</a>
+                </p>
                 <hr>
             </div>
         {% endfor %}
