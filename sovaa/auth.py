@@ -1,5 +1,5 @@
 import functools
-from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
+from flask import Blueprint, flash, g, redirect, render_template, request, session, url_for
 from werkzeug.security import check_password_hash, generate_password_hash
 from sovaa.db import get_db
 
@@ -48,9 +48,9 @@ def login():
         ).fetchone()
 
         if user is None:
-            error = 'Incorrect username.'
+            error = 'Incorrect username or password.'
         elif not check_password_hash(user['password'], password):
-            error = 'Incorrect password.'
+            error = 'Incorrect username or password.'
 
         if error is None:
             session.clear()
@@ -77,6 +77,7 @@ def load_logged_in_user():
 def logout():
     session.clear()
     return redirect(url_for('auction.index'))
+
 
 
 def login_required(view):

@@ -10,6 +10,7 @@
             <p>Welcome, {{ g.user['username'] }}!</p>
             <p><a href="{{ url_for('auth.logout') }}">Logout</a></p>
             <hr>
+            <p><a href="{{ url_for('user.profile') }}">Profile</a></p> <!-- Добавленная строка -->
             {% if g.user %}
                 <p><a href="{{ url_for('auction.create') }}">Create Announcement</a></p>
             {% endif %}
@@ -34,10 +35,11 @@
                             <input type="submit" value="Delete">
                         </form>
                     </p>
-                {% endif %}
+                {% else %}
                 <p>
-                    <a href="{{ url_for('auction.payment', username=g.user['username'], price=announcement['price']) }}">Buy</a>
+                    <a href="{{ url_for('auction.payment', username=g.user['username'], price=announcement['price'], id=announcement['id']) }}">Buy</a>
                 </p>
+                {% endif %}
                 <hr>
             </div>
         {% endfor %}

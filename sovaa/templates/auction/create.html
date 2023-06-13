@@ -5,6 +5,9 @@
 </head>
 <body>
     <h1>Create Announcement</h1>
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
     <form method="post" enctype="multipart/form-data">
         <div>
             <label for="title">Title:</label>
@@ -12,7 +15,7 @@
         </div>
         <div>
             <label for="body">Body:</label>
-            <textarea id="body" name="body" required></textarea>
+            <textarea id="body" name="body"></textarea>
         </div>
         <div>
             <label for="price">Price:</label>

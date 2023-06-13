@@ -147,6 +147,9 @@
       <div class="all-fields">
         <form id="register-form" method="post">
           <div class="fields">
+              {% for message in get_flashed_messages() %}
+                  <div class="flash">{{ message }}</div>
+              {% endfor %}
             <div class="frame-15">
               <div class="but">
                 <input type="text" class="txt" id="username" name="username" placeholder="Username">

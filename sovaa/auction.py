@@ -1,7 +1,5 @@
 import os
-from flask import (
-    Blueprint, flash, g, redirect, render_template, request, url_for
-)
+from flask import Blueprint, flash, g, redirect, render_template, request, url_for
 from werkzeug.exceptions import abort
 from werkzeug.utils import secure_filename
 from sovaa.auth import login_required
@@ -20,9 +18,9 @@ def allowed_file(filename):
 def index():
     db = get_db()
     announcements = db.execute(
-        'SELECT a.id, title, body, price, created, author_id, username, images'
-        ' FROM announcement a JOIN user u ON a.author_id = u.id'
-        ' ORDER BY created DESC'
+        'SELECT a.id, title, body, price, author_id, username, images'
+        ' FROM announcement a JOIN user u ON a.author_id = u.id WHERE status = ?'
+        ' ORDER BY created DESC', ('active',)
     ).fetchall()
 
     return render_template('auction/index.html', announcements=announcements)
@@ -68,7 +66,7 @@ def create():
 
 def get_announcement(id, check_author=True):
     announcement = get_db().execute(
-        'SELECT a.id, title, body, price, created, author_id, username, images'
+        'SELECT a.id, title, body, price, author_id, username, images'
         ' FROM announcement a JOIN user u ON a.author_id = u.id'
         ' WHERE a.id = ?',
         (id,)
@@ -135,5 +133,6 @@ def delete(id):
 def payment():
     username = request.args.get('username')
     price = request.args.get('price')
-    return render_template('auction/paypal.html', username=username, price=price)
+    id = request.args.get('id')
+    return render_template('auction/paypal.html', username=username, price=price, id=id)
 

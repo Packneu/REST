@@ -5,6 +5,9 @@
 </head>
 <body>
     <h2>Update Announcement</h2>
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
     <form id="update-form" method="post" enctype="multipart/form-data">
         <div>
             <label for="title">Title</label>

@@ -27,14 +27,15 @@
                         xhr.onload = function() {
                             if (xhr.status === 200) {
                                 alert('Payment completed successfully!');
-                                // Перенаправление на другую страницу или выполнение других действий
+                                window.location.href = '/';
                             } else {
                                 alert('Error occurred during payment. Please try again.');
                             }
                         };
                         var data = JSON.stringify({
                             username: '{{ username }}',
-                            price: '{{ price }}'
+                            price: '{{ price }}',
+                            id: '{{ id }}'
                         });
                         xhr.send(data);
                     });
@@ -53,6 +54,7 @@
     <h1>Payment</h1>
     <p>Username: {{ username }}</p>
     <p>Price: {{ price }}</p>
+    <p>ID: {{ id }}</p>
     <div id="paypal-button-container"></div>
 </body>
 </html>

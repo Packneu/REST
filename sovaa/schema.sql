@@ -4,7 +4,10 @@ DROP TABLE IF EXISTS paypal;
 
 CREATE TABLE user (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
+  email TEXT UNIQUE,
   username TEXT UNIQUE NOT NULL,
+  first_name TEXT,
+  last_name TEXT,
   password TEXT NOT NULL
 );
 
@@ -23,7 +26,7 @@ CREATE TABLE announcement (
 CREATE TABLE paypal (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     paypalid TEXT NOT NULL,
-    buyer TEXT NOT NULL,
+    customer TEXT NOT NULL,
     price INTEGER,
     status TEXT NOT NULL
 );
