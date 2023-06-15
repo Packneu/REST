@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <div class="put-up-lot-variant2">
+        <div class="header">
+            <div class="logo">
+                <img
+                  alt=""
+                  class="img"
+                  src="https://static.overlay-tech.com/assets/dc3b0d8c-ab90-4d46-bafb-9ed369b84a60.png"
+                />
+                <div class="txt">
+                  <p class="watch-auct">
+                    WATCH<br />
+                    auct
+                  </p>
+                  <div class="ellipse-1"></div>
+                </div>
+              </div>
+              <p class="hi-marlin">Hi, Marlin</p>
+        </div>
+        <p class="put-your-lot">Put your lot</p>
+        <div class="frame-223">
+          <div class="frame-215">
+            <div class="img-box-fill">
+                <div class="rectangle-1"></div>
+                        <img
+                            alt=""
+                            class="subtract"
+                            src="https://static.overlay-tech.com/assets/69294e51-3e63-4369-a4c8-5ac9f25c896b.svg"
+                        />
+  <div class="ellipse-46"></div>
+            </div>
+            <p class="upload-images">Upload images</p>
+          </div>
+          <div class="frame-216">
+            <div class="num-1">
+              <div class="name">
+                <p class="lot-name">First name</p>
+                <div class="line">
+                    <input type="text" class="line" />
+                </div>
+              </div>
+              <div class="name">
+                <p class="lot-name">Last name</p>
+                <div class="line">
+                    <input type="text" class="line" />
+                </div>
+              </div>
+              <div class="some">
+                <p class="price">Login</p>
+                <div class="line">
+                  <input type="text" class="line" />
+                </div>
+              </div>
+              <div class="some">
+                <p class="price">Password</p>
+                <div class="line">
+                  <input type="password" class="line" />
+                </div>
+              </div>
+            </div>
+            <div class="some-two">
+              <p class="description">Description</p>
+              <div class="line">
+                <textarea rows="4" style="width: 929px; height: 156px;  font-family: 'Hind' ; font-size: 22px; font-weight: 500;"></textarea>
+              </div>
+            </div>
+            <div class="but">
+                <a href="" class="put-button">PUT</a>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+}
+.put-button {
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 30px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 40px 40px #ec631f inset, 0 0 0 0 #F137A6;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: white;
+  transition: .15s ease-in-out;
+}
+.put-button:hover {
+  box-shadow: 0 0 10px 0 #e45d15 inset, 0 0 10px 4px #ee6a12;
+  color: #e25d0a;
+}
+.but {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.line {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 4px;
+  padding: 7.33px 0.5px 7.34px;
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  width: 100%;
+}
+.linedesk {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 4px;
+  padding: 7.33px 0.5px 74.34px;
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  width: 100%;
+}
+.txt {
+  font-family: "Nunito Sans";
+  font-size: 21px;
+  font-weight: 900;
+  line-height: normal;
+  color: rgba(197, 209, 217, 1);
+}
+.img-box-fill {
+  padding: 11.67px 8.09px 8.08px 8.08px;
+  position: relative;
+}
+.rectangle-1 {
+  width: 66.84%;
+  height: 66.84%;
+  border-radius: 16px;
+  position: absolute;
+  left: 8.08px;
+  top: 8.08px;
+  border: 8px solid rgba(53, 53, 49, 1);
+}
+.subtract {
+  width: 80.83px;
+  height: 77.25px;
+  position: relative;
+}
+.ellipse-46 {
+  width: 16.67%;
+  height: 16.67%;
+  background-color: rgba(53, 53, 49, 1);
+  border-radius: 50%;
+  position: absolute;
+  left: 52.54px;
+  top: 28.29px;
+}
+.header {
+    background-color: rgba(53, 53, 49, 1);
+    padding: 44px 72px 45px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 87px;
+    width: 100%;
+    margin: 0 auto;
+}
+.logo {
+    margin-left: 10%;
+    margin-right: 970px;
+    display: flex;
+    align-items: center;
+}
+.img {
+  width: 48px;
+  height: 66px;
+  margin-right: 18px;
+}
+.txt {
+  position: relative;
+}
+.watch-auct {
+  max-width: 95px;
+  font-family: "Nunito Sans";
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 29px;
+  color: rgba(255, 255, 255, 1);
+  position: relative;
+}
+.ellipse-1 {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(236, 78, 32, 1);
+  border-radius: 50%;
+  position: absolute;
+  left: 57px;
+  bottom: 27px;
+}
+.hi-marlin {
+  max-width: 85px;
+  font-family: "Hind";
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 26px;
+  color: rgba(197, 209, 217, 1);
+  margin-left: auto;
+}
+.put-your-lot {
+  font-family: "Hind";
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 60px;
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+}
+.frame-223 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 59px;
+}
+.frame-215 {
+  margin-right: 29px;
+  width: 610px;
+  height: 632px;
+  background-color: rgba(248, 249, 249, 1);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.frame-216 {
+  width: 929px;
+  height: 632px;
+  background-color: rgba(248, 249, 249, 1);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.num-1 {
+  margin-top: 29px;
+  width: 610px;
+  height: 489px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.name {
+  margin-bottom: 45px;
+  width: 453px;
+  height: 68px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.some {
+  margin-bottom: 45px;
+  width: 453px;
+  height: 68px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.some-two {
+  width: 453px;
+  height: 162px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.description {
+  font-family: "Hind";
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 30px;
+  color: rgba(0, 0, 0, 1);
+}
+.put-button {
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 30px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 40px 40px #ec631f inset, 0 0 0 0 #F137A6;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: white;
+  transition: .15s ease-in-out;
+}
+.put-button:hover {
+  box-shadow: 0 0 10px 0 #e45d15 inset, 0 0 10px 4px #ee6a12;
+  color: #e25d0a;
+}
+.upload-images {
+  font-family: "Hind";
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 30px;
+  color: rgba(0, 0, 0, 1);
+}
+.lot-name {
+  margin-top: 1.67%;
+  font-family: "Hind";
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 30px;
+  color: rgba(0, 0, 0, 1);
+}
+.price {
+  margin-top: 1.67%;
+  font-family: "Hind";
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 30px;
+  color: rgba(0, 0, 0, 1);
+}
+.line {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 4px;
+  padding: 7.33px 0.5px 7.34px;
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  width: 100%;
+}
+.line input {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  font-family: "Hind";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 1);
+  outline: none;
+}
+textarea {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  font-family: "Hind";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 1);
+  resize: none;
+  outline: none;
+}
+</style>
+</html>
