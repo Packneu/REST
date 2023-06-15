@@ -9,6 +9,7 @@
                 <img
                   alt=""
                   class="img"
+                  
                   src="https://static.overlay-tech.com/assets/dc3b0d8c-ab90-4d46-bafb-9ed369b84a60.png"
                 />
                 <div class="txt">
@@ -19,9 +20,9 @@
                   <div class="ellipse-1"></div>
                 </div>
               </div>
-              <p class="hi-marlin">Hi, Marlin</p>
+              <p class="hi-marlin">Hi, {{g.user['username']}}</p>
         </div>
-        <p class="put-your-lot">Put your lot</p>
+        <p class="put-your-lot">User Profile</p>
         <div class="frame-223">
           <div class="frame-215">
             <div class="img-box-fill">
@@ -29,11 +30,11 @@
                         <img
                             alt=""
                             class="subtract"
-                            src="https://static.overlay-tech.com/assets/69294e51-3e63-4369-a4c8-5ac9f25c896b.svg"
+                            src="https://www.vhv.rs/dpng/d/436-4361990_user-icon-png-person-icon-png-transparent-png.png"
                         />
   <div class="ellipse-46"></div>
             </div>
-            <p class="upload-images">Upload images</p>
+           
           </div>
           <div class="frame-216">
             <div class="num-1">
@@ -56,20 +57,17 @@
                 </div>
               </div>
               <div class="some">
-                <p class="price">Password</p>
+                <p class="price">Email</p>
                 <div class="line">
-                  <input type="password" class="line" />
+                  <input type="email" class="line" />
                 </div>
               </div>
             </div>
-            <div class="some-two">
-              <p class="description">Description</p>
-              <div class="line">
-                <textarea rows="4" style="width: 929px; height: 156px;  font-family: 'Hind' ; font-size: 22px; font-weight: 500;"></textarea>
-              </div>
-            </div>
+            
             <div class="but">
-                <a href="" class="put-button">PUT</a>
+                <a href="" class="put-button">BACK</a>
+                <a href="" class="put-button">Change password</a>
+                <a href="" class="put-button">SAVE</a>
             </div>
           </div>
         </div>
@@ -138,7 +136,7 @@ html, body {
   position: absolute;
   left: 8.08px;
   top: 8.08px;
-  border: 8px solid rgba(53, 53, 49, 1);
+ 
 }
 .subtract {
   width: 80.83px;
@@ -148,7 +146,7 @@ html, body {
 .ellipse-46 {
   width: 16.67%;
   height: 16.67%;
-  background-color: rgba(53, 53, 49, 1);
+
   border-radius: 50%;
   position: absolute;
   left: 52.54px;
@@ -165,7 +163,7 @@ html, body {
 }
 .logo {
     margin-left: 10%;
-    margin-right: 970px;
+    margin-right: 799px;
     display: flex;
     align-items: center;
 }
@@ -202,7 +200,7 @@ html, body {
   font-weight: 400;
   line-height: 26px;
   color: rgba(197, 209, 217, 1);
-  margin-left: auto;
+
 }
 .put-your-lot {
   font-family: "Hind";
