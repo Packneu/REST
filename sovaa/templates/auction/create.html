@@ -1,35 +1,303 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Create Announcement</title>
 </head>
 <body>
-    <h1>Create Announcement</h1>
-        {% for message in get_flashed_messages() %}
-            <div class="flash">{{ message }}</div>
-        {% endfor %}
-    <form method="post" enctype="multipart/form-data">
-        <div>
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required>
+    <div class="put-up-lot-variant2">
+        <div class="header">
+            <div class="logo">
+                <img
+                  alt=""
+                  class="img"
+                  src="https://static.overlay-tech.com/assets/dc3b0d8c-ab90-4d46-bafb-9ed369b84a60.png"
+                />
+                <div class="txt">
+                  <p class="watch-auct">
+                    WATCH<br />
+                    auct
+                  </p>
+                  <div class="ellipse-1"></div>
+                </div>
+              </div>
+              <p class="hi-marlin">Hi, Marlin</p>
         </div>
-        <div>
-            <label for="body">Body:</label>
-            <textarea id="body" name="body"></textarea>
+        <p class="put-your-lot">Put your lot</p>
+        <div class="frame-223">
+          <div class="frame-215">
+            <div class="img-box-fill">
+                <div class="rectangle-1"></div>
+                        <img
+                            alt=""
+                            class="subtract"
+                            src="https://static.overlay-tech.com/assets/69294e51-3e63-4369-a4c8-5ac9f25c896b.svg"
+                        />
+  <div class="ellipse-46"></div>
+            </div>
+            <p class="upload-images">Upload images</p>
+          </div>
+          <div class="frame-216">
+            <div class="num-1">
+              <div class="name">
+                <p class="lot-name">Lot name</p>
+                <div class="line">
+                    <input type="text" class="line" />
+                </div>
+              </div>
+              <div class="some">
+                <p class="price">Price $</p>
+                <div class="line">
+                  <input type="number" class="line" />
+                </div>
+              </div>
+            </div>
+            <div class="some-two">
+              <p class="description">Description</p>
+              <div class="line">
+                <textarea rows="4" style="width: 929px; height: 156px;  font-family: 'Hind' ; font-size: 22px; font-weight: 500;"></textarea>
+              </div>
+            </div>
+            <div class="but">
+                <a href="" class="put-button">PUT</a>
+            </div>
+          </div>
         </div>
-        <div>
-            <label for="price">Price:</label>
-            <input type="number" id="price" name="price" required>
-        </div>
-        <div>
-            <label for="image">Image:</label>
-            <input type="file" id="image" name="image" accept="image/*" required>
-        </div>
-        <div>
-            <input type="submit" value="Create">
-        </div>
-    </form>
-
-    <script src="create.js"></script>
+      </div>
 </body>
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+}
+.put-button {
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 30px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 40px 40px #ec631f inset, 0 0 0 0 #F137A6;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: white;
+  transition: .15s ease-in-out;
+}
+.put-button:hover {
+  box-shadow: 0 0 10px 0 #e45d15 inset, 0 0 10px 4px #ee6a12;
+  color: #e25d0a;
+}
+.but {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.line {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 4px;
+  padding: 7.33px 0.5px 7.34px;
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  width: 100%;
+}
+.linedesk {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 4px;
+  padding: 7.33px 0.5px 74.34px;
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  width: 100%;
+}
+.txt {
+  font-family: "Nunito Sans";
+  font-size: 21px;
+  font-weight: 900;
+  line-height: normal;
+  color: rgba(197, 209, 217, 1);
+}
+.img-box-fill {
+  padding: 11.67px 8.09px 8.08px 8.08px;
+  position: relative;
+}
+.rectangle-1 {
+  width: 66.84%;
+  height: 66.84%;
+  border-radius: 16px;
+  position: absolute;
+  left: 8.08px;
+  top: 8.08px;
+  border: 8px solid rgba(53, 53, 49, 1);
+}
+.subtract {
+  width: 80.83px;
+  height: 77.25px;
+  position: relative;
+}
+.ellipse-46 {
+  width: 16.67%;
+  height: 16.67%;
+  background-color: rgba(53, 53, 49, 1);
+  border-radius: 50%;
+  position: absolute;
+  left: 52.54px;
+  top: 28.29px;
+}
+.header {
+    background-color: rgba(53, 53, 49, 1);
+    padding: 44px 72px 45px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 87px;
+    width: 100%;
+    margin: 0 auto;
+}
+.logo {
+    margin-left: 10%;
+    margin-right: 970px;
+    display: flex;
+    align-items: center;
+}
+.img {
+  width: 48px;
+  height: 66px;
+  margin-right: 18px;
+}
+.txt {
+  position: relative;
+}
+.watch-auct {
+  max-width: 95px;
+  font-family: "Nunito Sans";
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 29px;
+  color: rgba(255, 255, 255, 1);
+  position: relative;
+}
+.ellipse-1 {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(236, 78, 32, 1);
+  border-radius: 50%;
+  position: absolute;
+  left: 57px;
+  bottom: 27px;
+}
+.hi-marlin {
+  max-width: 85px;
+  font-family: "Hind";
+  font-size: 19px;
+  font-weight: 700;
+  line-height: normal;
+  color: rgba(255, 255, 255, 1);
+}
+.put-up-lot-variant2 {
+  background-color: rgba(255, 255, 255, 1);
+  padding: 0 0 287.33px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.put-your-lot {
+  font-family: "Nunito Sans";
+  font-size: 28px;
+  font-weight: 900;
+  line-height: normal;
+  color: rgba(53, 53, 49, 1);
+  margin-bottom: 87px;
+  margin-left: 352px;
+}
+.frame-223 {
+  margin-left: 352px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.frame-215 {
+  margin-bottom: 76px;
+  border-radius: 4px;
+  padding: 37px 57px 31px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(53, 53, 49, 1);
+}
+.img-box-fill {
+  margin-bottom: 24px;
+}
+.upload-images {
+  max-width: 89px;
+  font-family: "Hind";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  color: rgba(1, 111, 185, 1);
+}
+.frame-216 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+.num-1 {
+  margin-bottom: 80px;
+  display: flex;
+  align-items: flex-start;
+  height: 98px;
+  width: 927px;
+}
+.name {
+  margin-right: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+.lot-name {
+  max-width: 81px;
+  font-family: "Hind";
+  font-size: 19px;
+  font-weight: 700;
+  line-height: normal;
+  color: rgba(53, 53, 49, 1);
+  margin-bottom: 0px;
+}
+
+.some {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  height: 98px;
+}
+.price {
+  max-width: 100px;
+  font-family: "Hind";
+  font-size: 19px;
+  font-weight: 700;
+  line-height: normal;
+  color: rgba(53, 53, 49, 1);
+  margin-bottom: 0px;
+}
+.some-two {
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+.description {
+  max-width: 100px;
+  font-family: "Hind";
+  font-size: 19px;
+  font-weight: 700;
+  line-height: normal;
+  color: rgba(53, 53, 49, 1);
+  margin-bottom: 0px;
+}
+.but {
+  height: 28.34px;
+  width: 98px;
+}
+</style>
 </html>
