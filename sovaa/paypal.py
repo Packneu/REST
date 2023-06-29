@@ -27,8 +27,8 @@ def payment():
     if not customer or not price:
         return jsonify({'error': 'buyer and amount are required'}), 400
 
-    client_id = "AZrtKHauKdGTjaOXM3jyIVdf9c9Z6pl1Fchr743J0Mgb1m9az1jJ0iG7YBAOY6_6iQUkMcPBc1eR-uNe"
-    client_secret = "ELKQSj377I-ObKMkakEf4hSXI_mWHRKCL6ObV_5SlhKzeRp35VufvP8j-XbZwYbhA9ENyamZmfewWNBN"
+    client_id = "YOUR_IF"
+    client_secret = "YOUR_SECRET_KEY"
 
     environment = SandboxEnvironment(client_id=client_id, client_secret=client_secret)
     client = PayPalHttpClient(environment)
